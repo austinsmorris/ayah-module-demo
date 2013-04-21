@@ -1,17 +1,17 @@
 <?php
 
-return [
-    'modules' => [
+return array(
+    'modules' => array(
         'Application',
-        'Ayah',
-    ],
-    'module_listener_options' => [
-        'module_paths' => [
+        'AYAH',
+    ),
+    'module_listener_options' => array(
+        'module_paths' => array(
             './module',
             './vendor',
-        ],
-        'config_glob_paths' => [
+        ),
+        'config_glob_paths' => array(
             'config/autoload/{,*.}{global,local}.php',
-        ],
-    ],
-];
+        ),
+    ),
+);
