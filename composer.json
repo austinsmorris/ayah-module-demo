@@ -1,0 +1,10 @@
+{
+    "name": "austinsmorris/ayah-module-demo",
+    "description": "A ZF2 demp app using ayah-module",
+    "license": "MIT",
+    "homepage": "https://github.com/austinsmorris",
+    "require": {
+        "php": ">=5.4",
+        "zendframework/zendframework": "2.*"
+    }
+}
