@@ -11,67 +11,32 @@ use Zend\Mvc\ModuleRouteListener;
 class Module
 {
     /**
+     * Get the autoloader configuration.
+     *
      * @return array
      */
     public function getAutoloaderConfig()
     {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
-            ),
-        );
+        return include __DIR__ . '/config/autoloader.config.php';
     }
 
     /**
+     * Get the module configuration.
+     *
      * @return array
      */
     public function getConfig()
     {
-        return array(
-            'router' => array(
-                'routes' => array(
-                    'home' => array(
-                        'type' => 'Zend\Mvc\Router\Http\Literal',
-                        'options' => array(
-                            'route'    => '/',
-                            'defaults' => array(
-                                'controller' => 'Application\Controller\Index',
-                                'action'     => 'index',
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            'view_manager' => array(
-                'display_not_found_reason' => true,
-                'display_exceptions'       => true,
-                'doctype'                  => 'HTML5',
-                'not_found_template'       => 'error/404',
-                'exception_template'       => 'error/index',
-                'template_map' => array(
-                    'layout/layout'           => __DIR__ . '/view/layout/layout.phtml',
-                    'application/index/index' => __DIR__ . '/view/application/index/index.phtml',
-                    'error/404'               => __DIR__ . '/view/error/404.phtml',
-                    'error/index'             => __DIR__ . '/view/error/index.phtml',
-                ),
-                'template_path_stack' => array(
-                    __DIR__ . '/view',
-                ),
-            ),
-        );
+        return include __DIR__ . '/config/module.config.php';
     }
 
     /**
+     * Get the controller configuration.
+     *
      * @return array
      */
     public function getControllerConfig()
     {
-        return array(
-            'invokables' => array(
-                'Application\Controller\Index' => 'Application\Controller\IndexController'
-            ),
-        );
+        return include __DIR__ . '/config/controller.config.php';
     }
 }
